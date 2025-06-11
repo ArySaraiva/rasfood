@@ -1,10 +1,11 @@
 package br.com.rasmoo.restaurante.service.test;
 
+import br.com.rasmoo.restaurante.dao.PratoDAO;
 import br.com.rasmoo.restaurante.entity.Prato;
+import br.com.rasmoo.restaurante.util.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 import java.math.BigDecimal;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -18,10 +19,11 @@ public class PratoService {
         risoto.setDisponivel(true);
         risoto.setValor(BigDecimal.valueOf(88.50));
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("rasFood");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityManager entityManager = JPAUtil.getEntityManagerRasFood();
+        PratoDAO pratoDAO = new PratoDAO(entityManager);
         entityManager.getTransaction().begin();
-        entityManager.persist(risoto);
+        pratoDAO.cadastrar(risoto);
         entityManager.getTransaction().commit();
         entityManager.close();
 
