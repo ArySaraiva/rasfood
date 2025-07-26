@@ -84,6 +84,7 @@ public class Ordem {
         this.ordensCardapioList = ordensCardapioList;
     }
 
+
     @Override
     public String toString() {
         return "Ordem{" +
@@ -94,4 +95,6 @@ public class Ordem {
                 ", ordensCardapioList=" + ordensCardapioList +
                 '}';
     }
+
+
 }
