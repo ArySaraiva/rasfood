@@ -27,7 +27,7 @@ public class Cardapio {
      * OneToMany
      * OneToOne
      * */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
 
     //@ManyToMany(mappedBy = "cardapioList")
